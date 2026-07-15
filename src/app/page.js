@@ -7,7 +7,7 @@ export default function Home() {
         <nav className="nav-links">
           <button className="nav-link">About</button>
           <button className="nav-link">Work</button>
-          <button className="nav-link">Contact</button>
+          <a href="tel:+917593988987" className="nav-link">Contact</a>
         </nav>
       </header>
 
@@ -46,7 +46,8 @@ export default function Home() {
           Hi, I'm Muhamed Favas — an aspiring AI Content Creator crafting high-impact cinematic videos, commercial advertisements, and digital brand experiences.
         </div>
         <div className="bottom-role right-align">
-          Marketing Specialist
+          Marketing Specialist <br />
+          <a href="tel:+917593988987" className="bottom-contact-link">+91 75939 88987</a>
         </div>
       </footer>
     </div>

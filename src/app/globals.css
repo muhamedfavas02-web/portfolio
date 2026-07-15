@@ -67,6 +67,7 @@ html, body {
 }
 
 .nav-link {
+  display: inline-block;
   font-family: var(--font-outfit);
   font-size: 0.75rem;
   font-weight: 500;
@@ -79,6 +80,7 @@ html, body {
   background: transparent;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
 .nav-link:hover {
@@ -205,6 +207,21 @@ html, body {
 
 .bottom-role.right-align {
   text-align: right;
+}
+
+.bottom-contact-link {
+  display: inline-block;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.bottom-contact-link:hover {
+  color: var(--text-primary);
 }
 
 .bottom-intro {
