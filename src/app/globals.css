@@ -490,12 +490,12 @@ html, body {
 #skills {
   position: relative;
   background-color: #070102;
-  background-image: radial-gradient(circle at 20% 80%, #4a0a0d 0%, #070102 50%, #000000 100%);
+  background-image: radial-gradient(circle at 10% 20%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  min-height: 100vh;
+  min-height: auto;
   border-top: 1px solid rgba(144, 22, 22, 0.15);
 }
 
@@ -514,46 +514,10 @@ html, body {
   color: var(--text-primary);
 }
 
-.skills-content-grid {
+.skills-list-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  align-items: start;
-}
-
-.skills-col {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.skills-col-title {
-  font-family: var(--font-outfit);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.skills-col-title::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background-color: #901616;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #901616;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
 }
 
 .skill-item {
@@ -588,20 +552,51 @@ html, body {
   border-radius: 50px;
 }
 
-.tools-grid {
+/* Tools Section */
+#tools {
+  position: relative;
+  background-color: #0b0b0f;
+  background-image: radial-gradient(circle at 90% 80%, #4a0a0d 0%, #0b0b0f 60%, #000000 100%);
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  min-height: auto;
+  border-top: 1px solid rgba(144, 22, 22, 0.15);
+}
+
+.tools-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tools-section-title {
+  font-family: var(--font-outfit);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.tools-section-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .tool-card {
   background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 1.25rem 0.5rem;
+  padding: 1.5rem 1rem;
   border-radius: 12px;
   text-align: center;
   font-family: var(--font-inter);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -615,6 +610,40 @@ html, body {
   background: rgba(144, 22, 22, 0.05);
   color: var(--text-primary);
   transform: translateY(-3px);
+}
+
+/* Certifications Section */
+#certifications {
+  position: relative;
+  background-color: #070102;
+  background-image: radial-gradient(circle at 50% 50%, #4a0a0d 0%, #070102 60%, #000000 100%);
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  min-height: auto;
+  border-top: 1px solid rgba(144, 22, 22, 0.15);
+}
+
+.certifications-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.certifications-section-title {
+  font-family: var(--font-outfit);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.cert-card-container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .cert-card {
@@ -758,16 +787,17 @@ html, body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-  #skills {
+  #skills, #tools, #certifications {
     padding: 6rem 2.5rem;
     gap: 3rem;
   }
-  .skills-content-grid {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2.5rem;
+  .skills-list-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .skills-col:nth-child(3) {
-    grid-column: span 2;
+  .tools-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
@@ -827,21 +857,18 @@ html, body {
   .service-card {
     padding: 2rem 1.5rem;
   }
-  #skills {
+  #skills, #tools, #certifications {
     padding: 4rem 1.25rem;
     gap: 2rem;
   }
-  .skills-section-title {
+  .skills-section-title, .tools-section-title, .certifications-section-title {
     font-size: 2.2rem;
   }
-  .skills-content-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .skills-col:nth-child(3) {
-    grid-column: span 1;
-  }
-  .tools-grid {
+  .tools-section-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .cert-card {
+    padding: 2rem 1.5rem;
   }
 }
