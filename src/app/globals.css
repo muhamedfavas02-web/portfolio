@@ -263,6 +263,7 @@ html, body {
     height: auto !important;
   }
   .hero-container {
+    background: radial-gradient(circle at 50% 25vh, #901616 0%, #150303 60%, #070101 100%);
     padding: 2rem 2.5rem;
     overflow: visible;
     height: auto;
