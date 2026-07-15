@@ -406,6 +406,86 @@ html, body {
   transform: translateY(-1px);
 }
 
+/* Services Section */
+#services {
+  position: relative;
+  background-color: #0b0b0f;
+  background-image: radial-gradient(circle at 80% 80%, #4a0a0d 0%, #0b0b0f 50%, #000000 100%);
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  min-height: 100vh;
+  border-top: 1px solid rgba(144, 22, 22, 0.15);
+}
+
+.services-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services-title {
+  font-family: var(--font-outfit);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover {
+  background: rgba(144, 22, 22, 0.04);
+  border-color: rgba(144, 22, 22, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(144, 22, 22, 0.15);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  color: #b81d24;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: #ff2a31;
+}
+
+.service-card-title {
+  font-family: var(--font-outfit);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.service-card-desc {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   html, body {
@@ -475,6 +555,14 @@ html, body {
     gap: 3.5rem;
     padding: 6rem 2.5rem;
   }
+  #services {
+    padding: 6rem 2.5rem;
+    gap: 3rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -518,5 +606,19 @@ html, body {
   }
   .about-title {
     font-size: 2.2rem;
+  }
+  #services {
+    padding: 4rem 1.25rem;
+    gap: 2rem;
+  }
+  .services-title {
+    font-size: 2.2rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .service-card {
+    padding: 2rem 1.5rem;
   }
 }
