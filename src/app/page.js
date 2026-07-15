@@ -15,10 +15,10 @@ export default function Home() {
       <main className="hero-content">
         <div className="hero-left">
           <h1 className="headline">
-            VISUAl<span className="subtle-char">S</span> THAT<br />
-            V<span className="subtle-char">O</span>ICE STORIES<br />
-            BETT<span className="subtle-char">E</span>R THAN YOUR<br />
-            C<span className="subtle-char">O</span>MPETITION
+            CRE<span className="subtle-char">A</span>TING CINEMATIC<br />
+            VISUALS THAT MAK<span className="subtle-char">E</span><br />
+            BRANDS IMP<span className="subtle-char">O</span>SSIBLE<br />
+            TO IGN<span className="subtle-char">O</span>RE
           </h1>
           <button className="cta-button">
             View My Work
