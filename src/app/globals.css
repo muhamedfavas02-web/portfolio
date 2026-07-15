@@ -1,0 +1,293 @@
+:root {
+  --bg-color: #0b0202;
+  --bg-gradient: radial-gradient(circle at 75% 50%, #901616 0%, #150303 60%, #070101 100%);
+  --foreground: #ffffff;
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --text-subtle: rgba(255, 255, 255, 0.25);
+  --border-pill: rgba(255, 255, 255, 0.2);
+  --border-pill-hover: rgba(255, 255, 255, 0.8);
+  --duotone-red: #8c1010;
+  
+  --font-outfit: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  --font-inter: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background layout */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 4rem;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-family: var(--font-outfit);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  font-family: var(--font-outfit);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-pill);
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  background-color: var(--text-primary);
+  color: #000000;
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Hero Content Body */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  height: 100%;
+  z-index: 5;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-right: 2rem;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.headline {
+  font-family: var(--font-outfit);
+  font-size: clamp(3.2rem, 5.5vw, 6rem);
+  line-height: 1.05;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.headline span.subtle-char {
+  color: var(--text-subtle);
+  transition: color 0.5s ease;
+}
+
+.headline span.subtle-char:hover {
+  color: var(--text-primary);
+}
+
+.cta-button {
+  align-self: flex-start;
+  font-family: var(--font-outfit);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: var(--text-primary);
+  padding: 1.25rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(144, 22, 22, 0.4);
+  background-color: #f0f0f0;
+}
+
+/* Duotone image container & styling */
+.hero-right {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 44vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background-color: var(--duotone-red);
+  overflow: hidden;
+  /* Complex radial gradient mask to fade the background wall of the photo to transparent */
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.8) 45%, rgba(0,0,0,0.2) 65%, transparent 82%);
+  mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.8) 45%, rgba(0,0,0,0.2) 65%, transparent 82%);
+  animation: fadeInImage 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.user-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  filter: grayscale(100%) contrast(1.2) brightness(0.9);
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+}
+
+/* Bottom Information Row */
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  z-index: 10;
+}
+
+.bottom-role {
+  font-family: var(--font-outfit);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  width: 25%;
+}
+
+.bottom-role.right-align {
+  text-align: right;
+}
+
+.bottom-intro {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 480px;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: scale(1.05) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 2rem 2.5rem;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+    gap: 4rem;
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .hero-right {
+    position: relative;
+    width: 80vw;
+    height: 50vh;
+    margin: 0 auto;
+    right: 0;
+    order: -1;
+  }
+  .image-wrapper {
+    height: 100%;
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.2) 70%, transparent 90%);
+    mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.2) 70%, transparent 90%);
+  }
+  .bottom-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .bottom-role {
+    width: 100%;
+  }
+  .bottom-role.right-align {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    padding: 1.5rem 1.5rem;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .headline {
+    font-size: 2.2rem;
+  }
+}
