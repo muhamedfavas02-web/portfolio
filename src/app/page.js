@@ -1,4 +1,78 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeProject, setActiveProject] = useState(null);
+
+  const projects = [
+    {
+      id: 1,
+      category: 'commercials',
+      title: 'AI Commercial Advertisements',
+      desc: 'Cinematic brand campaigns generated with advanced video diffusion models.',
+      tag: 'Commercials',
+      client: 'Redwood Media',
+      duration: '4 weeks',
+      tools: 'Higgsfield, ElevenLabs'
+    },
+    {
+      id: 2,
+      category: 'commercials',
+      title: 'Product Commercials',
+      desc: 'Stunning dynamic product showcases blending 3D rendering with AI motion graphics.',
+      tag: 'Commercials',
+      client: 'Velo Gear',
+      duration: '2 weeks',
+      tools: 'OpenArt, Seedance'
+    },
+    {
+      id: 3,
+      category: 'travel',
+      title: 'Travel Videos',
+      desc: 'Cinematic travelogues capturing scenic landscape scales and cultural narratives.',
+      tag: 'Travel & Docs',
+      client: 'Atlas Journeys',
+      duration: '6 weeks',
+      tools: 'Luma Dream Machine, Claude'
+    },
+    {
+      id: 4,
+      category: 'travel',
+      title: 'Historical Documentary Videos',
+      desc: 'Restoration-focused historical documentaries using deep history visual overlays.',
+      tag: 'Travel & Docs',
+      client: 'Kerala Heritage Society',
+      duration: '8 weeks',
+      tools: 'Midjourney, Runway Gen-3'
+    },
+    {
+      id: 5,
+      category: 'reels',
+      title: 'Social Media Reels',
+      desc: 'High-energy vertical short-form reels optimized for engagement and conversion algorithms.',
+      tag: 'Reels & Socials',
+      client: 'FitLife Brand',
+      duration: 'Ongoing',
+      tools: 'CapCut, ChatGPT, ElevenLabs'
+    },
+    {
+      id: 6,
+      category: 'reels',
+      title: 'Brand Promotional Videos',
+      desc: 'Engaging corporate storytelling videos and brand intro launches.',
+      tag: 'Reels & Socials',
+      client: 'Nexis Tech',
+      duration: '3 weeks',
+      tools: 'Gemini, Higgsfield'
+    }
+  ];
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeFilter);
+
   return (
     <>
       <div className="hero-container">
@@ -11,6 +85,7 @@ export default function Home() {
             <a href="#skills" className="nav-link">Skills</a>
             <a href="#tools" className="nav-link">Tools</a>
             <a href="#certifications" className="nav-link">Certs</a>
+            <a href="#portfolio" className="nav-link">Work</a>
             <a href="tel:+917593988987" className="nav-link">Contact</a>
           </nav>
         </header>
@@ -296,6 +371,120 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio">
+        <div className="portfolio-header">
+          <div className="portfolio-title-wrapper">
+            <h2 className="portfolio-title">Featured Work</h2>
+            <div className="glow-line"></div>
+          </div>
+          <div className="portfolio-filters">
+            <button 
+              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('all')}
+            >
+              All
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'commercials' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('commercials')}
+            >
+              Commercials
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'travel' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('travel')}
+            >
+              Travel & Docs
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'reels' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('reels')}
+            >
+              Reels & Socials
+            </button>
+          </div>
+        </div>
+
+        <div className="portfolio-grid">
+          {filteredProjects.map(project => (
+            <div 
+              key={project.id} 
+              className="project-card"
+              onClick={() => setActiveProject(project)}
+            >
+              <div className="project-image-wrapper">
+                <span className="project-badge">{project.tag}</span>
+                <div className="project-img-placeholder">
+                  {/* Abstract tech art background via SVG */}
+                  <svg width="100%" height="100%" opacity="0.15" stroke="currentColor">
+                    <line x1="0" y1="0" x2="100%" y2="100%" strokeWidth="1" />
+                    <line x1="100%" y1="0" x2="0" y2="100%" strokeWidth="1" />
+                    <circle cx="50%" cy="50%" r="30%" fill="none" strokeWidth="1" />
+                  </svg>
+                </div>
+              </div>
+              <div className="project-info">
+                <h3 className="project-card-title">{project.title}</h3>
+                <p className="project-card-desc">{project.desc}</p>
+                <div className="project-action">
+                  View Project
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {activeProject && (
+        <div className="modal-overlay" onClick={() => setActiveProject(null)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setActiveProject(null)}>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="modal-left">
+              <div className="project-img-placeholder">
+                {/* Visual mockup styling inside modal */}
+                <svg width="100%" height="100%" opacity="0.25" stroke="currentColor">
+                  <circle cx="50%" cy="50%" r="25%" fill="none" strokeWidth="1" />
+                  <circle cx="50%" cy="50%" r="15%" fill="none" strokeWidth="1" />
+                  <line x1="50%" y1="0" x2="50%" y2="100%" strokeWidth="0.5" />
+                  <line x1="0" y1="50%" x2="100%" y2="50%" strokeWidth="0.5" />
+                </svg>
+              </div>
+            </div>
+
+            <div className="modal-right">
+              <span className="modal-tag">{activeProject.tag}</span>
+              <h3 className="modal-title">{activeProject.title}</h3>
+              <p className="modal-desc">{activeProject.desc}</p>
+              
+              <div className="modal-details-grid">
+                <div className="modal-detail-item">
+                  <span className="modal-detail-label">Client</span>
+                  <span className="modal-detail-value">{activeProject.client}</span>
+                </div>
+                <div className="modal-detail-item">
+                  <span className="modal-detail-label">Duration</span>
+                  <span className="modal-detail-value">{activeProject.duration}</span>
+                </div>
+                <div className="modal-detail-item" style={{ gridColumn: 'span 2' }}>
+                  <span className="modal-detail-label">AI Stack / Tools</span>
+                  <span className="modal-detail-value">{activeProject.tools}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -710,6 +710,360 @@ html, body {
   }
 }
 
+/* Portfolio Section */
+#portfolio {
+  position: relative;
+  background-color: #0b0b0f;
+  background-image: radial-gradient(circle at 80% 20%, #4a0a0d 0%, #0b0b0f 60%, #000000 100%);
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  min-height: 100vh;
+  border-top: 1px solid rgba(144, 22, 22, 0.15);
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 2rem;
+}
+
+.portfolio-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.portfolio-title {
+  font-family: var(--font-outfit);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.portfolio-filters {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.filter-btn {
+  font-family: var(--font-outfit);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.6rem 1.6rem;
+  border: 1px solid var(--border-pill);
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  color: #ffffff;
+  border-color: #ba181b;
+  background: #ba181b;
+  box-shadow: 0 0 15px rgba(186, 24, 27, 0.4);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: rgba(144, 22, 22, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(144, 22, 22, 0.15);
+}
+
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+.project-img-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #150303 0%, #2b0606 50%, #4a0a0d 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
+.project-img-placeholder::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #ba181b;
+  filter: blur(50px);
+  opacity: 0.3;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.project-card:hover .project-img-placeholder::after {
+  transform: scale(1.3);
+  opacity: 0.5;
+}
+
+.project-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: var(--font-outfit);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+.project-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.project-card-title {
+  font-family: var(--font-outfit);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.project-card-desc {
+  font-family: var(--font-inter);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.project-action {
+  font-family: var(--font-outfit);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ba181b;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.3s ease;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.project-action svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-action {
+  color: #ff2a31;
+}
+
+.project-card:hover .project-action svg {
+  transform: translateX(3px);
+}
+
+/* Lightbox Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  background: #0b0b0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 750px;
+  width: 90%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(144, 22, 22, 0.25);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  animation: modalScaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: #ba181b;
+  border-color: #ba181b;
+  transform: rotate(90deg);
+}
+
+.modal-left {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+}
+
+.modal-right {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.modal-tag {
+  align-self: flex-start;
+  font-family: var(--font-outfit);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ba181b;
+}
+
+.modal-title {
+  font-family: var(--font-outfit);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.modal-desc {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.modal-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.25rem;
+}
+
+.modal-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal-detail-label {
+  font-family: var(--font-outfit);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.modal-detail-value {
+  font-family: var(--font-inter);
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   html, body {
@@ -799,6 +1153,29 @@ html, body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+  #portfolio {
+    padding: 6rem 2.5rem;
+    gap: 3rem;
+  }
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+  .modal-left {
+    min-height: 240px;
+  }
+  .modal-right {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -870,5 +1247,27 @@ html, body {
   }
   .cert-card {
     padding: 2rem 1.5rem;
+  }
+  #portfolio {
+    padding: 4rem 1.25rem;
+    gap: 2rem;
+  }
+  .portfolio-title {
+    font-size: 2.2rem;
+  }
+  .portfolio-header {
+    gap: 1.25rem;
+  }
+  .portfolio-filters {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
