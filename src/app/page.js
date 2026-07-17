@@ -457,14 +457,11 @@ export default function Home() {
             >
               <div className="project-image-wrapper">
                 <span className="project-badge">{project.tag}</span>
-                <div className="project-img-placeholder">
-                  {/* Abstract tech art background via SVG */}
-                  <svg width="100%" height="100%" opacity="0.15" stroke="currentColor">
-                    <line x1="0" y1="0" x2="100%" y2="100%" strokeWidth="1" />
-                    <line x1="100%" y1="0" x2="0" y2="100%" strokeWidth="1" />
-                    <circle cx="50%" cy="50%" r="30%" fill="none" strokeWidth="1" />
-                  </svg>
-                </div>
+                <img 
+                  src={`/portfolio${project.id}.jpg`} 
+                  alt={project.title} 
+                  className="project-card-image"
+                />
               </div>
               <div className="project-info">
                 <h3 className="project-card-title">{project.title}</h3>
@@ -492,15 +489,11 @@ export default function Home() {
             </button>
             
             <div className="modal-left">
-              <div className="project-img-placeholder">
-                {/* Visual mockup styling inside modal */}
-                <svg width="100%" height="100%" opacity="0.25" stroke="currentColor">
-                  <circle cx="50%" cy="50%" r="25%" fill="none" strokeWidth="1" />
-                  <circle cx="50%" cy="50%" r="15%" fill="none" strokeWidth="1" />
-                  <line x1="50%" y1="0" x2="50%" y2="100%" strokeWidth="0.5" />
-                  <line x1="0" y1="50%" x2="100%" y2="50%" strokeWidth="0.5" />
-                </svg>
-              </div>
+              <img 
+                src={`/portfolio${activeProject.id}.jpg`} 
+                alt={activeProject.title} 
+                className="modal-project-image"
+              />
             </div>
 
             <div className="modal-right">
