@@ -6,6 +6,7 @@ export default function Home() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeProject, setActiveProject] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const testimonials = [
     {
@@ -119,15 +120,27 @@ export default function Home() {
         {/* Navigation Header */}
         <header className="navbar">
           <div className="logo">MUHAMED FAVAS</div>
-          <nav className="nav-links">
-            <a href="#about" className="nav-link">About</a>
-            <a href="#services" className="nav-link">Services</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#tools" className="nav-link">Tools</a>
-            <a href="#certifications" className="nav-link">Certs</a>
-            <a href="#portfolio" className="nav-link">Work</a>
-            <a href="#testimonials" className="nav-link">Reviews</a>
-            <a href="#contact" className="nav-link">Contact</a>
+          
+          {/* Hamburger toggle button for mobile */}
+          <button 
+            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+
+          <nav className={`nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>
+            <a href="#about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</a>
+            <a href="#services" className="nav-link" onClick={() => setIsMenuOpen(false)}>Services</a>
+            <a href="#skills" className="nav-link" onClick={() => setIsMenuOpen(false)}>Skills</a>
+            <a href="#tools" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tools</a>
+            <a href="#certifications" className="nav-link" onClick={() => setIsMenuOpen(false)}>Certs</a>
+            <a href="#portfolio" className="nav-link" onClick={() => setIsMenuOpen(false)}>Work</a>
+            <a href="#testimonials" className="nav-link" onClick={() => setIsMenuOpen(false)}>Reviews</a>
+            <a href="#contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</a>
           </nav>
         </header>
 

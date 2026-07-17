@@ -69,6 +69,10 @@ html, body {
   gap: 0.75rem;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .nav-link {
   display: inline-block;
   font-family: var(--font-outfit);
@@ -1622,6 +1626,69 @@ textarea.form-input {
     justify-content: flex-start;
     gap: 3rem;
   }
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 100;
+  }
+  .hamburger-line {
+    width: 22px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .menu-toggle.open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .menu-toggle.open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .nav-links.mobile-open {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(7, 1, 2, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    z-index: 95;
+    padding: 2rem;
+    margin: 0;
+    animation: fadeIn 0.3s ease;
+  }
+  .nav-links.mobile-open .nav-link {
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    padding: 0.8rem 2.5rem;
+    width: 80%;
+    text-align: center;
+    border-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.01);
+  }
+  .nav-links.mobile-open .nav-link:hover {
+    background-color: var(--text-primary);
+    color: #000000;
+    border-color: var(--text-primary);
+  }
   .hero-content {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 1.5rem;
@@ -1778,13 +1845,6 @@ textarea.form-input {
   }
   .logo {
     font-size: 1.1rem;
-  }
-  .nav-links {
-    gap: 0.4rem;
-  }
-  .nav-link {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.65rem;
   }
   .hero-content {
     grid-template-columns: 1.15fr 0.85fr;
