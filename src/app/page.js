@@ -1,10 +1,50 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeProject, setActiveProject] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Alex Rivera",
+      role: "Creative Director at Redwood Media",
+      text: "Favas transformed our brand campaign concepts into jaw-dropping cinematic visuals using AI. His prompt engineering skills are top-tier!",
+      initials: "AR"
+    },
+    {
+      id: 2,
+      name: "Sarah Jenkins",
+      role: "Founder of Velo Gear",
+      text: "The product commercial produced by Favas exceeded our expectations. The visual storytelling was compelling and drove amazing engagement.",
+      initials: "SJ"
+    },
+    {
+      id: 3,
+      name: "Vikram Nair",
+      role: "Media Coordinator at Atlas Journeys",
+      text: "The travelogue video was pure art. Favas combined AI stability tools with professional video scaling seamlessly. Outstanding work!",
+      initials: "VN"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   const projects = [
     {
@@ -86,6 +126,7 @@ export default function Home() {
             <a href="#tools" className="nav-link">Tools</a>
             <a href="#certifications" className="nav-link">Certs</a>
             <a href="#portfolio" className="nav-link">Work</a>
+            <a href="#testimonials" className="nav-link">Reviews</a>
             <a href="tel:+917593988987" className="nav-link">Contact</a>
           </nav>
         </header>
@@ -485,6 +526,80 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Testimonials Section */}
+      <section id="testimonials">
+        <div className="testimonials-header">
+          <h2 className="testimonials-title">Testimonials</h2>
+          <div className="glow-line"></div>
+        </div>
+
+        <div className="testimonials-slider-container">
+          <div className="testimonial-card-wrapper">
+            {/* Left navigation arrow */}
+            <button className="slider-arrow left" onClick={prevSlide}>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Active Slide Card */}
+            <div className="testimonial-card">
+              <div className="testimonial-stars">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="testimonial-text">
+                "{testimonials[currentSlide].text}"
+              </p>
+              <div className="testimonial-author">
+                <div className="testimonial-avatar">
+                  {testimonials[currentSlide].initials}
+                </div>
+                <div className="testimonial-author-info">
+                  <h4 className="testimonial-name">{testimonials[currentSlide].name}</h4>
+                  <span className="testimonial-role">{testimonials[currentSlide].role}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right navigation arrow */}
+            <button className="slider-arrow right" onClick={nextSlide}>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Indicator Dots */}
+          <div className="slider-dots">
+            {testimonials.map((_, index) => (
+              <div 
+                key={index} 
+                className={`slider-dot ${currentSlide === index ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
+          </div>
+
+          {/* Mobile Controls Row */}
+          <div className="slider-controls-mobile">
+            <button className="mobile-arrow" onClick={prevSlide}>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button className="mobile-arrow" onClick={nextSlide}>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
