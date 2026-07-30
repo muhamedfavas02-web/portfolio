@@ -219,16 +219,19 @@ html, body {
 .bottom-contact-link {
   display: inline-block;
   font-family: var(--font-inter);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.4rem;
   text-decoration: none;
   letter-spacing: 0.05em;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .bottom-contact-link:hover {
-  color: var(--text-primary);
+  color: #ba181b;
+  text-shadow: 0 0 10px rgba(186, 24, 27, 0.5);
+  transform: translateY(-1px);
 }
 
 .bottom-intro {
