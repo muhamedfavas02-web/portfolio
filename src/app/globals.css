@@ -234,8 +234,7 @@ html, body {
 
 .bottom-contact-link:hover {
   color: #ba181b;
-  text-shadow: 0 0 10px rgba(186, 24, 27, 0.5);
-  transform: translateY(-1px);
+  animation: linkPulse 1.2s infinite ease-in-out;
 }
 
 .bottom-intro {
@@ -276,6 +275,17 @@ html, body {
   }
   50% {
     transform: translateY(-15px);
+  }
+}
+
+@keyframes linkPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(186, 24, 27, 0.5);
+  }
+  50% {
+    transform: scale(1.06);
+    text-shadow: 0 0 20px rgba(186, 24, 27, 0.85), 0 0 30px rgba(186, 24, 27, 0.65);
   }
 }
 
