@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #0b0202;
-  --bg-gradient: radial-gradient(circle at 75% 50%, #901616 0%, #150303 60%, #070101 100%);
+  --bg-color: #070102;
+  --bg-gradient: radial-gradient(circle at 75% 50%, #4a0a0d 0%, #070102 60%, #000000 100%);
   --foreground: #ffffff;
   --text-primary: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.65);
@@ -316,8 +316,8 @@ html, body {
 /* About Me Section */
 #about {
   position: relative;
-  background-color: #070101;
-  background-image: radial-gradient(circle at 20% 30%, #4a0a0d 0%, #070101 50%, #000000 100%);
+  background-color: #070102;
+  background-image: radial-gradient(circle at 20% 30%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -463,8 +463,8 @@ html, body {
 /* Services Section */
 #services {
   position: relative;
-  background-color: #0b0b0f;
-  background-image: radial-gradient(circle at 80% 80%, #4a0a0d 0%, #0b0b0f 50%, #000000 100%);
+  background-color: #070102;
+  background-image: radial-gradient(circle at 80% 80%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
@@ -609,8 +609,8 @@ html, body {
 /* Tools Section */
 #tools {
   position: relative;
-  background-color: #0b0b0f;
-  background-image: radial-gradient(circle at 90% 80%, #4a0a0d 0%, #0b0b0f 60%, #000000 100%);
+  background-color: #070102;
+  background-image: radial-gradient(circle at 90% 80%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
@@ -767,8 +767,8 @@ html, body {
 /* Portfolio Section */
 #portfolio {
   position: relative;
-  background-color: #0b0b0f;
-  background-image: radial-gradient(circle at 80% 20%, #4a0a0d 0%, #0b0b0f 60%, #000000 100%);
+  background-color: #070102;
+  background-image: radial-gradient(circle at 80% 20%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
@@ -1344,8 +1344,8 @@ html, body {
 /* Contact Section */
 #contact {
   position: relative;
-  background-color: #0b0b0f;
-  background-image: radial-gradient(circle at 10% 80%, #4a0a0d 0%, #0b0b0f 60%, #000000 100%);
+  background-color: #070102;
+  background-image: radial-gradient(circle at 10% 80%, #4a0a0d 0%, #070102 60%, #000000 100%);
   padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
@@ -1668,7 +1668,7 @@ textarea.form-input {
     height: auto !important;
   }
   .hero-container {
-    background: radial-gradient(circle at 80% 30vh, #901616 0%, #150303 60%, #070101 100%);
+    background: radial-gradient(circle at 80% 30vh, #4a0a0d 0%, #070102 60%, #000000 100%);
     padding: 2rem 2.5rem;
     overflow: visible;
     height: auto;
