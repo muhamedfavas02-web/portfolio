@@ -2,11 +2,95 @@
 
 import { useState, useEffect } from 'react';
 
+const headlineTokens = [
+  // Line 1: CREATING CINEMATIC
+  { type: 'char', value: 'C' },
+  { type: 'char', value: 'R' },
+  { type: 'char', value: 'E' },
+  { type: 'highlight', value: 'A' },
+  { type: 'char', value: 'T' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'N' },
+  { type: 'char', value: 'G' },
+  { type: 'char', value: ' ' },
+  { type: 'char', value: 'C' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'N' },
+  { type: 'char', value: 'E' },
+  { type: 'char', value: 'M' },
+  { type: 'char', value: 'A' },
+  { type: 'char', value: 'T' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'C' },
+  { type: 'br' },
+
+  // Line 2: VISUALS THAT MAKE
+  { type: 'char', value: 'V' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'S' },
+  { type: 'char', value: 'U' },
+  { type: 'char', value: 'A' },
+  { type: 'char', value: 'L' },
+  { type: 'char', value: 'S' },
+  { type: 'char', value: ' ' },
+  { type: 'char', value: 'T' },
+  { type: 'char', value: 'H' },
+  { type: 'char', value: 'A' },
+  { type: 'char', value: 'T' },
+  { type: 'char', value: ' ' },
+  { type: 'char', value: 'M' },
+  { type: 'char', value: 'A' },
+  { type: 'char', value: 'K' },
+  { type: 'highlight', value: 'E' },
+  { type: 'br' },
+
+  // Line 3: BRANDS IMPOSSIBLE
+  { type: 'char', value: 'B' },
+  { type: 'char', value: 'R' },
+  { type: 'char', value: 'A' },
+  { type: 'char', value: 'N' },
+  { type: 'char', value: 'D' },
+  { type: 'char', value: 'S' },
+  { type: 'char', value: ' ' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'M' },
+  { type: 'char', value: 'P' },
+  { type: 'highlight', value: 'O' },
+  { type: 'char', value: 'S' },
+  { type: 'char', value: 'S' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'B' },
+  { type: 'char', value: 'L' },
+  { type: 'char', value: 'E' },
+  { type: 'br' },
+
+  // Line 4: TO IGNORE
+  { type: 'char', value: 'T' },
+  { type: 'char', value: 'O' },
+  { type: 'char', value: ' ' },
+  { type: 'char', value: 'I' },
+  { type: 'char', value: 'G' },
+  { type: 'char', value: 'N' },
+  { type: 'highlight', value: 'O' },
+  { type: 'char', value: 'R' },
+  { type: 'char', value: 'E' }
+];
+
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeProject, setActiveProject] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [visibleChars, setVisibleChars] = useState(0);
+
+  useEffect(() => {
+    if (visibleChars < headlineTokens.length) {
+      const timer = setTimeout(() => {
+        setVisibleChars(prev => prev + 1);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [visibleChars]);
 
   const testimonials = [
     {
@@ -148,10 +232,14 @@ export default function Home() {
         <main className="hero-content">
           <div className="hero-left">
             <h1 className="headline">
-              CRE<span className="subtle-char">A</span>TING CINEMATIC<br />
-              VISUALS THAT MAK<span className="subtle-char">E</span><br />
-              BRANDS IMP<span className="subtle-char">O</span>SSIBLE<br />
-              TO IGN<span className="subtle-char">O</span>RE
+              {headlineTokens.slice(0, visibleChars).map((token, index) => {
+                if (token.type === 'br') return <br key={index} />;
+                if (token.type === 'highlight') {
+                  return <span key={index} className="subtle-char">{token.value}</span>;
+                }
+                return token.value;
+              })}
+              {visibleChars < headlineTokens.length && <span className="typewriter-cursor">|</span>}
             </h1>
             <a href="#about" className="cta-button" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
               View My Work
