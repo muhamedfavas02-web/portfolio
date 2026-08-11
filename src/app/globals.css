@@ -289,18 +289,7 @@ html, body {
   }
 }
 
-.typewriter-cursor {
-  color: #ba181b;
-  animation: blinkCursor 0.8s infinite;
-  font-weight: 300;
-  display: inline-block;
-  margin-left: 4px;
-}
 
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 
 @keyframes fadeInImage {
   from {
