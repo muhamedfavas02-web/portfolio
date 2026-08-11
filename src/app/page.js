@@ -153,7 +153,13 @@ export default function Home() {
               BRANDS IMP<span className="subtle-char">O</span>SSIBLE<br />
               TO IGN<span className="subtle-char">O</span>RE
             </h1>
-            <a href="#portfolio" className="cta-button" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
+            <a 
+              href="https://drive.google.com/drive/folders/18Y8uWOzahWJrKcruRcd5OZKDVZHXIXZP?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="cta-button" 
+              style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}
+            >
               View My Work
             </a>
           </div>
