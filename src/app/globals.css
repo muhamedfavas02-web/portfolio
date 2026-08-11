@@ -139,14 +139,14 @@ html, body {
 .cta-button {
   align-self: flex-start;
   font-family: var(--font-outfit);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #000000;
   background-color: var(--text-primary);
-  padding: 0.95rem 0;
-  width: 210px;
+  padding: 0.8rem 0;
+  width: 180px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -166,18 +166,18 @@ html, body {
 .whatsapp-button {
   align-self: flex-start;
   font-family: var(--font-outfit);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #ffffff;
   background-color: #25d366;
-  padding: 0.95rem 0;
-  width: 210px;
+  padding: 0.8rem 0;
+  width: 180px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -193,8 +193,8 @@ html, body {
 }
 
 .whatsapp-button svg {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   fill: currentColor;
 }
 
