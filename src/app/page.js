@@ -518,7 +518,7 @@ export default function Home() {
       <section id="portfolio">
         <div className="portfolio-header">
           <div className="portfolio-title-wrapper">
-            <h2 className="portfolio-title">Featured Work</h2>
+            <h2 className="portfolio-title">Work</h2>
             <div className="glow-line"></div>
           </div>
           <div className="portfolio-filters">
