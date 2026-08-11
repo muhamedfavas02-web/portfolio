@@ -465,7 +465,7 @@ export default function Home() {
           {filteredProjects.map(project => (
             <a 
               key={project.id} 
-              href="https://youtube.com/playlist?list=PLchZR5tb4gCM&si=8LH63vfK5KdcaclH"
+              href="https://drive.google.com/drive/folders/18Y8uWOzahWJrKcruRcd5OZKDVZHXIXZP?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="project-card"
