@@ -53,7 +53,7 @@ export default function Home() {
       `*Subject:* ${subject}\n` +
       `*Message:* ${message}`;
 
-    const whatsappUrl = `https://wa.me/7593988987?text=${encodeURIComponent(formattedText)}`;
+    const whatsappUrl = `https://wa.me/917593988987?text=${encodeURIComponent(formattedText)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -190,7 +190,7 @@ export default function Home() {
               View My Work
             </a>
             <a 
-              href="https://wa.me/7593988987" 
+              href="https://wa.me/917593988987" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="whatsapp-button"
