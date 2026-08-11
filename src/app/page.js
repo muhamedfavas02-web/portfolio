@@ -241,7 +241,7 @@ export default function Home() {
               })}
               {visibleChars < headlineTokens.length && <span className="typewriter-cursor">|</span>}
             </h1>
-            <a href="#about" className="cta-button" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
+            <a href="#portfolio" className="cta-button" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
               View My Work
             </a>
           </div>
