@@ -551,10 +551,13 @@ export default function Home() {
 
         <div className="portfolio-grid">
           {filteredProjects.map(project => (
-            <div 
+            <a 
               key={project.id} 
+              href="https://youtube.com/playlist?list=PLchZR5tb4gCM&si=8LH63vfK5KdcaclH"
+              target="_blank"
+              rel="noopener noreferrer"
               className="project-card"
-              onClick={() => setActiveProject(project)}
+              style={{ textDecoration: 'none' }}
             >
               <div className="project-image-wrapper">
                 <span className="project-badge">{project.tag}</span>
@@ -574,7 +577,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
