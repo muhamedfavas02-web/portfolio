@@ -40,6 +40,23 @@ export default function Home() {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById('form-name').value;
+    const email = document.getElementById('form-email').value;
+    const subject = document.getElementById('form-subject').value;
+    const message = document.getElementById('form-message').value;
+
+    const formattedText = `*New Message from Portfolio*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Subject:* ${subject}\n` +
+      `*Message:* ${message}`;
+
+    const whatsappUrl = `https://wa.me/7593988987?text=${encodeURIComponent(formattedText)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -723,7 +740,7 @@ export default function Home() {
 
           {/* Right Column: Contact Form */}
           <div className="contact-form-col">
-            <form onSubmit={e => e.preventDefault()}>
+            <form onSubmit={handleFormSubmit}>
               <div className="form-group" style={{ marginBottom: '1.5rem' }}>
                 <label className="form-label" htmlFor="form-name">Name</label>
                 <input type="text" id="form-name" className="form-input" placeholder="Your Name" required />
