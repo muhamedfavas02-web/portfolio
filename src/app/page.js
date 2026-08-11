@@ -282,7 +282,7 @@ export default function Home() {
             <div className="metric-card">
               <h3 className="metric-title">Analytical Mindset</h3>
               <p className="metric-desc">
-                An accounting background from the University of Calicut driving logical structure, strict attention to details, and analytical problem-solving.
+                A degree from the University of Calicut with an accounting background, driving logical structure, strict attention to details, and analytical problem-solving.
               </p>
             </div>
             <div className="metric-card">
@@ -302,7 +302,7 @@ export default function Home() {
 
         <div className="about-right">
           <p className="bio-text">
-            I'm <span className="bio-highlight">Muhamed Favas</span>, an aspiring AI Content Creator and Marketing Specialist from Kottakkal, Kerala, India. After completing my degree, I studied Accounting, which strengthened my problem-solving abilities. Currently, I specialize in combining creativity with artificial intelligence to produce engaging, high-quality digital content.
+            I'm <span className="bio-highlight">Muhamed Favas</span>, an aspiring AI Content Creator and Marketing Specialist from Kottakkal, Kerala, India. After completing my degree from the University of Calicut and gaining an accounting background, I strengthened my problem-solving abilities. Currently, I specialize in combining creativity with artificial intelligence to produce engaging, high-quality digital content.
           </p>
           <p className="bio-text">
             My experience includes transforming creative ideas into professional-quality visuals and compelling stories through AI-powered content creation. I focus on pushing the boundaries of digital creativity, continuously learning emerging AI technologies, and collaborating with brands to deliver meaningful results.
